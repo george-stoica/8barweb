@@ -1,14 +1,19 @@
 /* global React, MeasurementScale */
 
 function HomePage({ go, line, showWhy }) {
-  const headline = line || 'Engineered outcomes.';
   const showStatement = showWhy !== false;
   return (
     <main className="page">
       <section className="shell hero">
         <span className="eyebrow">Software · Hong Kong · Worldwide</span>
-        <h1 className="display" style={{ marginTop: 24 }}>
-          {headline}
+        <h1 className="display hero-wedge" style={{ marginTop: 24 }}>
+          {line ? line : (
+            <>
+              Writing software<br/>has never been easier.
+              <span className="hero-wedge-break"> </span>
+              Running it well<br/>has never been harder.
+            </>
+          )}
         </h1>
         <p className="lede">
           A software studio for startups and scaleups. We build mobile applications,
@@ -76,6 +81,51 @@ function HomePage({ go, line, showWhy }) {
               before you regret it.
             </p>
           </div>
+        </div>
+      </section>
+
+      <hr className="divider" />
+
+      <section className="shell section">
+        <span className="eyebrow">Capabilities</span>
+        <p className="statement" style={{ marginTop: 24 }}>
+          The tools we reach for, <em>chosen for the job</em>.
+        </p>
+
+        <div className="skills-grid" style={{ marginTop: 48 }}>
+          <div className="skill-col">
+            <div className="skill-label">Backend</div>
+            <div className="skill-list mono">JVM (Kotlin / Java) · Go · Postgres · Kafka · Redis</div>
+          </div>
+          <div className="skill-col">
+            <div className="skill-label">Platform</div>
+            <div className="skill-list mono">Kubernetes · Terraform · Argo CD · AWS · Azure</div>
+          </div>
+          <div className="skill-col">
+            <div className="skill-label">Mobile</div>
+            <div className="skill-list mono">Swift (iOS) · Kotlin (Android) · cross-platform when it fits</div>
+          </div>
+          <div className="skill-col">
+            <div className="skill-label">SRE &amp; observability</div>
+            <div className="skill-list mono">Prometheus · Grafana · OpenTelemetry · runbooks · on-call</div>
+          </div>
+          <div className="skill-col">
+            <div className="skill-label">Delivery</div>
+            <div className="skill-list mono">GitHub Actions · trunk-based CI · IaC from day one</div>
+          </div>
+        </div>
+      </section>
+
+      <hr className="divider" />
+
+      <section className="shell section--tight">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: 24 }}>
+          <p className="statement">
+            Have a system that&rsquo;s creaking, or one you haven&rsquo;t built yet?
+          </p>
+          <a href="#contact" className="btn btn--primary">
+            Get in touch <span className="arrow">→</span>
+          </a>
         </div>
       </section>
       </>)}
