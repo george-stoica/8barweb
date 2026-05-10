@@ -1,14 +1,19 @@
 /* global React, MeasurementScale */
 
 function HomePage({ go, line, showWhy }) {
-  const headline = line || 'Engineered outcomes.';
   const showStatement = showWhy !== false;
   return (
     <main className="page">
       <section className="shell hero">
         <span className="eyebrow">Software · Hong Kong · Worldwide</span>
-        <h1 className="display" style={{ marginTop: 24 }}>
-          {headline}
+        <h1 className="display hero-wedge" style={{ marginTop: 24 }}>
+          {line ? line : (
+            <>
+              Writing software<br/>has never been easier.
+              <span className="hero-wedge-break"> </span>
+              Running it well<br/>has never been harder.
+            </>
+          )}
         </h1>
         <p className="lede">
           A software studio for startups and scaleups. We build mobile applications,
