@@ -32,7 +32,7 @@ function ContactPage() {
             <div className="contact-block">
               <span className="label">LinkedIn</span>
               <span className="value">
-                <a href="https://linkedin.com/in/georgestoica" target="_blank" rel="noreferrer">linkedin.com/in/georgestoica</a>
+                <a href="https://www.linkedin.com/company/8bar-systems" target="_blank" rel="noreferrer">linkedin.com/company/8bar-systems</a>
               </span>
             </div>
             <div className="contact-block">
@@ -42,11 +42,6 @@ function ContactPage() {
           </div>
 
           <div>
-            <div className="contact-block">
-              <span className="label">Registered entity</span>
-              <span className="value" style={{ fontFamily: 'var(--sans)' }}>8bar Systems Limited</span>
-              <span className="meta" style={{ marginTop: 4 }}>Hong Kong S.A.R.</span>
-            </div>
             <div className="contact-block">
               <span className="label">Address</span>
               <span className="value" style={{ fontSize: 15, lineHeight: 1.7 }}>

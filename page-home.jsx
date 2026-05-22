@@ -87,31 +87,45 @@ function HomePage({ go, line, showWhy }) {
       <hr className="divider" />
 
       <section className="shell section">
-        <span className="eyebrow">Capabilities</span>
+        <span className="eyebrow">What we take on</span>
         <p className="statement" style={{ marginTop: 24 }}>
-          The tools we reach for, <em>chosen for the job</em>.
+          Four kinds of work, <em>scoped before they start</em>.
         </p>
 
-        <div className="skills-grid" style={{ marginTop: 48 }}>
-          <div className="skill-col">
-            <div className="skill-label">Backend</div>
-            <div className="skill-list mono">JVM (Kotlin / Java) · Go · Postgres · Kafka · Redis</div>
+        <div className="four-up">
+          <div className="item">
+            <div className="num">01</div>
+            <h3>Build it.</h3>
+            <p>
+              New backend services, APIs, and platforms — designed for the
+              throughput, correctness, and operational demands of financial-grade
+              workloads.
+            </p>
           </div>
-          <div className="skill-col">
-            <div className="skill-label">Platform</div>
-            <div className="skill-list mono">Kubernetes · Terraform · Argo CD · AWS · Azure</div>
+          <div className="item">
+            <div className="num">02</div>
+            <h3>Run it.</h3>
+            <p>
+              Cloud platforms, CI/CD, observability, and on-call. The work that
+              turns a service that ships into one that stays up.
+            </p>
           </div>
-          <div className="skill-col">
-            <div className="skill-label">Mobile</div>
-            <div className="skill-list mono">Swift (iOS) · Kotlin (Android) · cross-platform when it fits</div>
+          <div className="item">
+            <div className="num">03</div>
+            <h3>Rescue it.</h3>
+            <p>
+              Inherited systems that have outgrown how they were built. We
+              stabilise, re-platform, and hand back something a team can keep
+              moving on.
+            </p>
           </div>
-          <div className="skill-col">
-            <div className="skill-label">SRE &amp; observability</div>
-            <div className="skill-list mono">Prometheus · Grafana · OpenTelemetry · runbooks · on-call</div>
-          </div>
-          <div className="skill-col">
-            <div className="skill-label">Delivery</div>
-            <div className="skill-list mono">GitHub Actions · trunk-based CI · IaC from day one</div>
+          <div className="item">
+            <div className="num">04</div>
+            <h3>Architecture &amp; advisory.</h3>
+            <p>
+              Reviews, decision documents, and second opinions. Short
+              engagements for the calls that have to be right the first time.
+            </p>
           </div>
         </div>
       </section>

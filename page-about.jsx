@@ -82,67 +82,55 @@ function AboutPage() {
 
       <section className="shell section">
         <div className="about-grid">
-          <div className="label">03 · Selected work</div>
+          <div className="label">03 · Areas of expertise</div>
           <div>
-            <p style={{ color: 'var(--steel)' }}>
-              A sample of the engagements behind 8bar — anonymised.
+            <p>
+              The domains we&rsquo;ve spent the last decade in — and the ones
+              we&rsquo;re fluent enough in to make good calls quickly.
             </p>
 
-            <ul className="timeline" style={{ marginTop: 28 }}>
+            <ul className="how-list" aria-label="Areas of expertise">
               <li>
-                <span className="when">Ongoing</span>
-                <span className="what">
-                  <strong>Hybrid mobile platform.</strong>{' '}
-                  <span className="role">
-                    20 Azure AKS clusters across 2 regions · 340k req/min · led
-                    API gateway migration cutting infrastructure cost 40% ·
-                    designed and operates the on-call SRE rotation.
-                  </span>
-                </span>
+                <div className="how-label">Payments &amp; FX.</div>
+                <div className="how-desc">
+                  Multi-currency accounts, payment-processor integrations,
+                  settlement, and reconciliation flows.
+                </div>
               </li>
               <li>
-                <span className="when">Payments &amp; FX</span>
-                <span className="what">
-                  <strong>Multi-currency payments platform.</strong>{' '}
-                  <span className="role">
-                    Event-driven microservices backing bank-account management
-                    and third-party payment processors for a Hong Kong
-                    challenger bank.
-                  </span>
-                </span>
+                <div className="how-label">Trading &amp; market infrastructure.</div>
+                <div className="how-desc">
+                  Order flow, RFQ negotiation, settlement engines, real-time
+                  risk and position management.
+                </div>
               </li>
               <li>
-                <span className="when">Trading</span>
-                <span className="what">
-                  <strong>Commodity trading marketplace.</strong>{' '}
-                  <span className="role">
-                    Java / Micronaut / Kafka backend for an oil-trading
-                    platform · trade-negotiation and settlement engine on Kafka
-                    streams · full AWS infrastructure in Terraform.
-                  </span>
-                </span>
+                <div className="how-label">High-throughput mobile platforms.</div>
+                <div className="how-desc">
+                  Backend infrastructure for consumer apps operating at
+                  hundreds of thousands of requests per minute.
+                </div>
               </li>
               <li>
-                <span className="when">Wealth</span>
-                <span className="what">
-                  <strong>Digital wealth management platform.</strong>{' '}
-                  <span className="role">
-                    On-demand AWS environment provisioning (EKS + supporting
-                    infra) cutting new-client onboarding time significantly ·
-                    self-service DB credential portal via HashiCorp Vault.
-                  </span>
-                </span>
+                <div className="how-label">Event-driven architectures.</div>
+                <div className="how-desc">
+                  Kafka-based systems for real-time data flow between services
+                  and across organisations.
+                </div>
               </li>
               <li>
-                <span className="when">Trading</span>
-                <span className="what">
-                  <strong>Financial instruments trading.</strong>{' '}
-                  <span className="role">
-                    Kotlin / Akka microservices for indication-of-interest,
-                    peer-to-peer RFQ negotiation, and real-time position
-                    liquidation triggered by risk thresholds.
-                  </span>
-                </span>
+                <div className="how-label">Cloud platforms &amp; migrations.</div>
+                <div className="how-desc">
+                  Kubernetes estates on AWS and Azure; gateway, ingress, and
+                  identity migrations on live production systems.
+                </div>
+              </li>
+              <li>
+                <div className="how-label">Observability &amp; SRE.</div>
+                <div className="how-desc">
+                  Prometheus / Grafana stacks, alerting, on-call rotation
+                  design, incident response and post-mortem practice.
+                </div>
               </li>
             </ul>
           </div>
@@ -186,46 +174,6 @@ function AboutPage() {
         </div>
       </section>
 
-      <hr className="divider" />
-
-      <section className="shell section">
-        <div className="about-grid">
-          <div className="label">05 · Founder</div>
-          <div>
-            <p style={{ fontSize: 19 }}>
-              <strong>George Stoica.</strong>{' '}
-              Backend and platform engineer; a decade running distributed
-              systems in payments, trading, and high-throughput mobile platforms
-              across Hong Kong&rsquo;s fintech sector — the kind of work where
-              &ldquo;compiles and runs locally&rdquo; is the start of the job,
-              not the end.
-            </p>
-            <p className="meta" style={{ marginTop: 16 }}>
-              MSc Information Security · BSc Computer Science.
-            </p>
-            <p style={{ marginTop: 20 }}>
-              <a className="underline" href="https://www.linkedin.com/in/georgestoica/" target="_blank" rel="noopener noreferrer">
-                LinkedIn ↗
-              </a>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <hr className="divider" />
-
-      <section className="shell section">
-        <div className="about-grid">
-          <div className="label">06 · Where</div>
-          <div>
-            <p>
-              8bar Systems Limited is registered in Hong Kong S.A.R. We work
-              remote-first with clients globally, and travel for engagements
-              that need it.
-            </p>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

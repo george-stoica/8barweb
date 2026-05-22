@@ -402,6 +402,19 @@ a.underline:hover { border-bottom-color: var(--amber); }
 .three-up .item h3 { margin: 8px 0 8px; font-size: 18px; }
 .three-up .item p { color: var(--steel); font-size: 14px; }
 
+.four-up {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 64px;
+}
+@media (max-width: 1024px) { .four-up { grid-template-columns: repeat(2, 1fr); gap: 28px; } }
+@media (max-width: 560px) { .four-up { grid-template-columns: 1fr; gap: 24px; } }
+.four-up .item { padding-top: 20px; border-top: 1px solid var(--subtle); }
+.four-up .item .num { font-family: var(--mono); font-size: 13px; color: var(--steel); }
+.four-up .item h3 { margin: 8px 0 8px; font-size: 18px; }
+.four-up .item p { color: var(--steel); font-size: 14px; }
+
 ::selection { background: var(--amber); color: var(--charcoal); }
 
 :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }

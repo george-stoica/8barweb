@@ -52,13 +52,8 @@ function Footer() {
           <span className="meta">Contact</span>
           <a className="mono" style={{ fontSize: 14 }} href="mailto:contact@8barsystems.tech">contact@8barsystems.tech</a>
         </div>
-        <div className="col">
-          <span className="meta">Registered</span>
-          <span style={{ fontSize: 14 }}>8bar Systems Limited</span>
-          <span className="meta">Hong Kong S.A.R.</span>
-        </div>
         <div className="col" style={{ textAlign: 'right' }}>
-          <span className="mono" style={{ fontSize: 12, color: 'var(--steel)' }}>© 2026 · 8barsystems.tech</span>
+          <span className="mono" style={{ fontSize: 12, color: 'var(--steel)' }}>© 8barsystems.tech</span>
         </div>
       </div>
     </footer>
