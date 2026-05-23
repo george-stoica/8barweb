@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>8bar — Vibe-coded MVP to production-grade</title>
+<style>
+  @page {
+    size: 1080px 1350px;
+    margin: 0;
+  }
+  :root {
+    --ink: #EDEBE3;
+    --bg: #0E0E0D;
+    --bg-alt: #161614;
+    --mute: #9C9A92;
+    --rule: #3D3D3B;
+    --accent: #C8944A;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); }
+  body {
+    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    padding: 110px 100px;
+    position: relative;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    overflow: hidden;
+  }
+  .slide:last-child { page-break-after: auto; }
+
+  .slide-alt { background: var(--bg-alt); }
+
+  .eyebrow {
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+
+  .footer {
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    bottom: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    color: var(--mute);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .footer .mark {
+    display: inline-flex;
+    align-items: baseline;
+    color: var(--ink);
+    letter-spacing: -1px;
+    text-transform: none;
+    font-size: 26px;
+  }
+  .footer .mark b { font-weight: 700; }
+
+  /* ---- Cover ---- */
+  .cover .stack { margin-top: auto; }
+  .cover h1 {
+    font-size: 96px;
+    line-height: 1.04;
+    font-weight: 700;
+    letter-spacing: -2.5px;
+    margin: 32px 0 0;
+  }
+  .cover h1 .arrow { color: var(--accent); font-weight: 400; }
+  .cover .sub {
+    margin-top: 44px;
+    font-size: 32px;
+    line-height: 1.4;
+    color: var(--mute);
+    max-width: 760px;
+    font-weight: 400;
+  }
+  .cover .swipe {
+    position: absolute;
+    right: 100px;
+    bottom: 80px;
+    font-size: 20px;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  /* ---- Body slides ---- */
+  .num {
+    font-size: 22px;
+    letter-spacing: 6px;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+  .body-slide h2 {
+    margin: auto 0;
+    font-size: 76px;
+    line-height: 1.12;
+    font-weight: 700;
+    letter-spacing: -1.6px;
+  }
+  .body-slide .lead {
+    margin: auto 0;
+    font-size: 64px;
+    line-height: 1.18;
+    font-weight: 400;
+    letter-spacing: -1px;
+  }
+  .body-slide p {
+    margin: 28px 0 0;
+    font-size: 30px;
+    line-height: 1.5;
+    color: var(--mute);
+    max-width: 820px;
+  }
+  .accent { color: var(--accent); }
+  .ink { color: var(--ink); }
+
+  .quiet {
+    font-size: 30px;
+    line-height: 1.5;
+    color: var(--mute);
+  }
+
+  /* ---- List slides ---- */
+  .list-slide ul {
+    list-style: none;
+    padding: 0;
+    margin: auto 0;
+  }
+  .list-slide li {
+    font-size: 44px;
+    line-height: 1.3;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    padding: 38px 0;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    gap: 28px;
+  }
+  .list-slide li:last-child { border-bottom: 1px solid var(--rule); }
+  .list-slide li .idx {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 30px;
+    min-width: 56px;
+    padding-top: 8px;
+  }
+
+  /* ---- Close ---- */
+  .close h2 {
+    margin: auto 0 24px;
+    font-size: 88px;
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -2px;
+  }
+  .close .kicker {
+    font-size: 32px;
+    color: var(--mute);
+    line-height: 1.4;
+    max-width: 780px;
+    margin-bottom: 80px;
+  }
+  .close .brand {
+    margin-top: auto;
+    padding-top: 60px;
+    border-top: 1px solid var(--rule);
+  }
+  .close .wordmark {
+    font-size: 88px;
+    letter-spacing: -2.5px;
+    line-height: 1;
+  }
+  .close .wordmark b { font-weight: 700; }
+  .close .tag {
+    margin-top: 18px;
+    font-size: 22px;
+    letter-spacing: 6px;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+  .close .url {
+    margin-top: 36px;
+    font-size: 30px;
+    color: var(--accent);
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<!-- 1 — Cover -->
+<section class="slide cover">
+  <div class="eyebrow">FIELD NOTES · 01</div>
+  <div class="stack">
+    <h1>Vibe-coded MVP <span class="arrow">→</span><br>production-grade.</h1>
+    <p class="sub">What a decade of shipping software teaches you to look for early.</p>
+  </div>
+  <div class="swipe">Swipe →</div>
+</section>
+
+<!-- 2 — Setup -->
+<section class="slide slide-alt body-slide">
+  <div class="num">01 · The setup</div>
+  <p class="lead">
+    The demo works.<br>
+    The prototype ships.<br>
+    Ten users love it.
+  </p>
+  <p>Then user eleven shows up on Safari.</p>
+  <div class="footer"><span class="mark"><b>8</b>bar</span><span>01 / 06</span></div>
+</section>
+
+<!-- 3 — The quiet gap -->
+<section class="slide body-slide">
+  <div class="num">02 · The quiet gap</div>
+  <h2>
+    The gap between "it runs" and "it runs reliably" <span class="accent">hasn't shrunk.</span>
+    <br><br>
+    <span class="ink">It's gotten quieter.</span>
+  </h2>
+  <p>Bugs that used to surface in week two now surface at $50k MRR — when there's a contract and an SLA attached.</p>
+  <div class="footer"><span class="mark"><b>8</b>bar</span><span>02 / 06</span></div>
+</section>
+
+<!-- 4 — What to look for, part 1 -->
+<section class="slide slide-alt list-slide">
+  <div class="num">03 · What to look for, early</div>
+  <ul>
+    <li><span class="idx">01</span><span>Which corners are safe to cut — and which come back as a 2am page.</span></li>
+    <li><span class="idx">02</span><span>The architecture choices that scale 100 → 100k without a rewrite.</span></li>
+  </ul>
+  <div class="footer"><span class="mark"><b>8</b>bar</span><span>03 / 06</span></div>
+</section>
+
+<!-- 5 — What to look for, part 2 -->
+<section class="slide list-slide">
+  <div class="num">04 · What to look for, early</div>
+  <ul>
+    <li><span class="idx">03</span><span>The one query, in a codebase you've never seen, running the bill up.</span></li>
+    <li><span class="idx">04</span><span>The boring infrastructure — backups, monitoring, secrets, rollbacks — written before it's needed.</span></li>
+  </ul>
+  <div class="footer"><span class="mark"><b>8</b>bar</span><span>04 / 06</span></div>
+</section>
+
+<!-- 6 — Close -->
+<section class="slide slide-alt close">
+  <div class="num">05 · The point</div>
+  <h2>None of it is glamorous.</h2>
+  <p class="kicker">It's the difference between a demo and a business.</p>
+  <div class="brand">
+    <div class="wordmark"><b>8</b>bar</div>
+    <div class="tag">Engineered outcomes.</div>
+    <div class="url">8barsystems.tech</div>
+  </div>
+</section>
+
+</body>
+</html>

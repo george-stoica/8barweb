@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>8bar — quote cards</title>
+<style>
+  :root {
+    --ink: #EDEBE3;
+    --bg: #0E0E0D;
+    --mute: #9C9A92;
+    --rule: #3D3D3B;
+    --accent: #C8944A;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #000; }
+  body {
+    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+  .card {
+    width: 1080px;
+    height: 1350px;
+    padding: 110px 100px 90px;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .card.landscape {
+    width: 1920px;
+    height: 1005px;
+    padding: 80px 110px 70px;
+  }
+  .eyebrow {
+    font-size: 22px;
+    letter-spacing: 6px;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+  .mark-quote {
+    margin-top: 60px;
+    font-size: 220px;
+    line-height: 0.7;
+    color: var(--accent);
+    font-weight: 700;
+    font-family: Georgia, "Times New Roman", serif;
+    height: 100px;
+  }
+  blockquote {
+    margin: 60px 0 0;
+    font-size: 84px;
+    line-height: 1.12;
+    font-weight: 700;
+    letter-spacing: -2px;
+  }
+  blockquote.smaller {
+    font-size: 76px;
+    line-height: 1.14;
+  }
+  .card.landscape .mark-quote {
+    margin-top: 24px;
+    font-size: 180px;
+    height: 80px;
+  }
+  .card.landscape blockquote {
+    margin-top: 40px;
+    font-size: 78px;
+    line-height: 1.15;
+    max-width: 1600px;
+  }
+  .card.landscape .attribution {
+    padding-top: 40px;
+  }
+  .accent { color: var(--accent); }
+  .attribution {
+    margin-top: auto;
+    padding-top: 60px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .wordmark {
+    font-size: 56px;
+    letter-spacing: -1.5px;
+  }
+  .wordmark b { font-weight: 700; }
+  .url {
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<!-- Card A: $50k MRR -->
+<section class="card" id="a">
+  <div class="eyebrow">Field notes · 01</div>
+  <div class="mark-quote">"</div>
+  <blockquote>
+    The bugs that used to surface in <span class="accent">week two</span><br>
+    now surface at <span class="accent">$50k MRR.</span>
+  </blockquote>
+  <div class="attribution">
+    <div class="wordmark"><b>8</b>bar</div>
+    <div class="url">8barsystems.tech</div>
+  </div>
+</section>
+
+<!-- Card B: quieter (landscape) -->
+<section class="card landscape" id="b">
+  <div class="eyebrow">Field notes &middot; 01</div>
+  <div class="mark-quote">&ldquo;</div>
+  <blockquote>
+    The gap between <span class="accent">&ldquo;it runs&rdquo;</span> and <span class="accent">&ldquo;it runs reliably&rdquo;</span> hasn&rsquo;t shrunk.<br><br>
+    It&rsquo;s gotten quieter.
+  </blockquote>
+  <div class="attribution">
+    <div class="wordmark"><b>8</b>bar</div>
+    <div class="url">8barsystems.tech</div>
+  </div>
+</section>
+
+</body>
+</html>

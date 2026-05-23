@@ -6,7 +6,7 @@ Then user eleven shows up on Safari, the database hits 80% disk, and the AI-gene
 
 Vibe coding gets a product to "it works on my machine" faster than ever. What it does not surface is which of the 47 packages it pulled in has a known CVE, why an N+1 query becomes a 6-second page load at 10k rows, or what a rollback looks like at 3am with paying customers on the line.
 
-The gap between "it runs" and "it runs reliably" has not shrunk. It has gotten quieter. The bugs that used to surface in week two now surface at $50k MRR, when there is a contract and an SLA attached.
+The bugs that used to surface in week two now surface at $50k MRR, when there is a contract and an SLA attached.
 
 A few things a decade of shipping software teaches you to look for early:
 
