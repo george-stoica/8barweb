@@ -3,6 +3,18 @@ const { useState, useEffect, useCallback } = React;
 
 const ROUTES = ['home', 'work', 'about', 'contact'];
 
+// Manual GA4 page_view for the hash-routed SPA. gtag is set on window in index.html.
+// No-ops gracefully if analytics hasn't loaded.
+function trackPageView(route) {
+  if (typeof window.gtag !== 'function') return;
+  window.gtag('event', 'page_view', {
+    page_path: '/#' + route,
+    page_location: window.location.href,
+    page_title: '8bar — ' + route
+  });
+}
+window.trackPageView = trackPageView;
+
 function useHashRoute() {
   const get = () => {
     const h = (window.location.hash || '#home').replace(/^#/, '').split('?')[0];
@@ -10,9 +22,16 @@ function useHashRoute() {
   };
   const [route, setRoute] = useState(get);
   useEffect(() => {
+    // Initial page_view only if consent was already granted (returning visitor).
+    // First-time visitors get their first page_view from the banner's Accept handler.
+    if (localStorage.getItem('eightbar_ga_consent') === 'granted') {
+      trackPageView(get());
+    }
     const onHash = () => {
-      setRoute(get());
+      const next = get();
+      setRoute(next);
       window.scrollTo({ top: 0 });
+      trackPageView(next);
     };
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);

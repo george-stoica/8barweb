@@ -24,6 +24,46 @@
 
   <link rel="stylesheet" href="styles.css" />
 
+  <!-- Google Analytics 4 + Consent Mode v2 -->
+  <script>
+    window.GA_MEASUREMENT_ID = 'G-S4D0E439Q7';
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+
+    // Default everything denied -> cookieless ping mode until consent.
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500
+    });
+
+    gtag('js', new Date());
+    // Disable automatic page_view; we send them manually per hash route (see chrome.jsx).
+    gtag('config', window.GA_MEASUREMENT_ID, { send_page_view: false });
+
+    // Returning visitor who already accepted -> upgrade silently, no banner.
+    if (localStorage.getItem('eightbar_ga_consent') === 'granted') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted'
+      });
+    }
+
+    // Inject gtag/js dynamically so the URL derives from the single ID source.
+    (function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_MEASUREMENT_ID;
+      document.head.appendChild(s);
+    })();
+  </script>
+
   <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
@@ -38,5 +78,64 @@
   <script type="text/babel" src="page-about.jsx"></script>
   <script type="text/babel" src="page-contact.jsx"></script>
   <script type="text/babel" src="app.jsx"></script>
+
+  <!-- Cookie consent banner (GA4 Consent Mode gate) -->
+  <style>#eightbar-cookie-banner{display:none}</style>
+  <div id="eightbar-cookie-banner"
+       role="dialog"
+       aria-live="polite"
+       aria-label="Cookie consent"
+       style="position:fixed;bottom:0;left:0;right:0;z-index:9999;
+              background:#0E0E0D;border-top:1px solid #3D3D3B;
+              padding:16px clamp(20px,4vw,56px);
+              display:flex;flex-wrap:wrap;align-items:center;gap:14px;
+              font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:#9C9A92;">
+    <span style="flex:1;min-width:240px;line-height:1.5;">
+      We use cookies to understand how visitors use this site and to improve it.
+    </span>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button id="eightbar-cookie-decline"
+              style="background:transparent;border:1px solid #3D3D3B;color:#9C9A92;
+                     padding:9px 20px;border-radius:2px;cursor:pointer;font-size:13px;font-weight:600;
+                     font-family:'JetBrains Mono','Courier New',ui-monospace,monospace;letter-spacing:.04em;">
+        Decline
+      </button>
+      <button id="eightbar-cookie-accept"
+              style="background:transparent;border:1px solid #C8944A;color:#C8944A;
+                     padding:9px 20px;border-radius:2px;cursor:pointer;font-size:13px;font-weight:600;
+                     font-family:'JetBrains Mono','Courier New',ui-monospace,monospace;letter-spacing:.04em;">
+        Accept
+      </button>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var banner = document.getElementById('eightbar-cookie-banner');
+      var consent = localStorage.getItem('eightbar_ga_consent');
+
+      if (!consent) { banner.style.display = 'flex'; }
+
+      document.getElementById('eightbar-cookie-accept').addEventListener('click', function () {
+        localStorage.setItem('eightbar_ga_consent', 'granted');
+        banner.style.display = 'none';
+        gtag('consent', 'update', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        });
+        // Count the accepting session's current route.
+        if (typeof window.trackPageView === 'function') {
+          window.trackPageView((window.location.hash || '#home').replace(/^#/, '').split('?')[0]);
+        }
+      });
+
+      document.getElementById('eightbar-cookie-decline').addEventListener('click', function () {
+        // 'denied' is already the default; persist so the banner won't reappear.
+        localStorage.setItem('eightbar_ga_consent', 'denied');
+        banner.style.display = 'none';
+      });
+    })();
+  </script>
 </body>
 </html>
