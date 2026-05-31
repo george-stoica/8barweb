@@ -65,9 +65,6 @@ function ContactPage() {
       <hr className="divider" />
 
       <section className="shell section--tight" style={{ paddingBottom: 24 }}>
-        <p className="meta" style={{ marginBottom: 24 }}>
-          No contact form. Email is accountable.
-        </p>
         <MeasurementScale />
       </section>
     </main>
