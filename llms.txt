@@ -1,0 +1,53 @@
+# 8bar Systems
+
+> 8bar Systems is a software studio based in Central, Hong Kong, serving startups and scaleups worldwide. We build mobile applications, backend APIs, and the platforms behind them — and we advise the engineering teams who run them. Our work is built on a decade of shipped systems in fintech, payments, trading, and high-throughput mobile. Tagline: "Engineered outcomes."
+
+## What we do
+
+8bar operates in two modes that share the same standards:
+
+- **Build** — We design and ship software end-to-end: native mobile (iOS and Android), web frontends, backend APIs, databases, and the deployment infrastructure around them. Typical build engagements run 3 to 12 weeks. Examples: MVP product builds; event-driven backend services (Kafka, Postgres, Redis; JVM or Go); platform & CI/CD foundations (Kubernetes, Terraform, Argo CD, observability from day one); mobile applications.
+- **Advise** — We work alongside existing engineering teams: architecture and codebase reviews (written reports with findings, risks, and prioritised remediations); cloud & platform audits (AWS or Azure — cost, reliability, security posture); incident response & SRE setup (on-call rotations, runbooks, observability stacks); and fractional CTO arrangements. Advisory engagements run from a single day.
+
+The four kinds of work, in plain terms: **Build it** (new services, APIs, platforms for financial-grade workloads), **Run it** (cloud platforms, CI/CD, observability, on-call), **Rescue it** (stabilise and re-platform inherited systems), and **Architecture & advisory** (reviews, decision documents, second opinions).
+
+## How we work
+
+- Every engagement is scoped in writing before any code is written — the shape of the problem, the artifacts you'll get, and the timeline.
+- Deliverables you can refer back to: architecture documents, audit reports, runbooks.
+- Production-grade defaults: tests, observability, and CI from day one.
+- Direct access to the engineer making the decisions — no account layer, no offshore handoff.
+- We do not do open-ended staff augmentation, body-shop placements, or prototypes dressed up as production systems.
+
+## Areas of expertise
+
+- **Payments & FX** — multi-currency accounts, payment-processor integrations, settlement, reconciliation.
+- **Trading & market infrastructure** — order flow, RFQ negotiation, settlement engines, real-time risk and position management.
+- **High-throughput mobile platforms** — backend infrastructure for consumer apps at hundreds of thousands of requests per minute.
+- **Event-driven architectures** — Kafka-based systems for real-time data flow within and across organisations.
+- **Cloud platforms & migrations** — Kubernetes on AWS and Azure; gateway, ingress, and identity migrations on live systems.
+- **Observability & SRE** — Prometheus/Grafana, alerting, on-call design, incident response and post-mortems.
+
+## Technology
+
+- Platform & SRE: Kubernetes, Helm, Argo CD, Istio, Linkerd, Kong, workload identity
+- Observability: Prometheus, Grafana, Thanos, Loki, ELK, Alertmanager, PagerDuty
+- Backend: Java, Kotlin, Go, Spring Boot, Micronaut, Akka, Kafka Streams
+- Cloud: AWS (EKS, RDS, IAM, IRSA, CloudFront), Azure (AKS, Cosmos DB, Front Door)
+- Data & messaging: Kafka, PostgreSQL, Redis, MongoDB, OpenSearch
+
+## Pages
+
+- [Home](https://8barsystems.tech/): Overview of 8bar Systems and what we take on.
+- [Work](https://8barsystems.tech/work/): The two modes — Build and Advise — with deliverables.
+- [About](https://8barsystems.tech/about/): Why the studio exists, how we work, areas of expertise, and capabilities.
+- [Contact](https://8barsystems.tech/contact/): How to reach us and engagement scope.
+
+## Contact
+
+- Email: contact@8barsystems.tech (we reply within one business day, Hong Kong hours)
+- Web: https://8barsystems.tech
+- LinkedIn: https://www.linkedin.com/company/8bar-systems
+- Address: Unit 2904–05, 29/F, Universal Trade Centre, 3 Arbuthnot Road, Central, Hong Kong S.A.R.
+- Hours: Monday–Friday, 09:00–18:00 HKT
+- Engagement scope: Build engagements from 3 weeks; advisory from a single day.

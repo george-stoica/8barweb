@@ -3,14 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>8bar — Engineered outcomes.</title>
-  <meta name="description" content="8bar Systems — a software studio for startups and scaleups. We build mobile applications, backend APIs, and the systems behind them." />
+
+  <title>8bar Systems — Software studio for startups &amp; scaleups | Hong Kong</title>
+  <meta name="description" content="8bar Systems is a Hong Kong software studio for startups and scaleups. We build mobile apps, backend APIs, and the platforms behind them — and advise the teams who run them. Senior engineering from a decade in fintech, payments, and trading." />
   <link rel="canonical" href="https://8barsystems.tech/" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+  <meta name="author" content="8bar Systems" />
+  <meta name="geo.region" content="HK" />
+  <meta name="geo.placename" content="Central, Hong Kong" />
+  <meta name="theme-color" content="#0E0E0D" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="8bar Systems" />
-  <meta property="og:title" content="8bar — Engineered outcomes." />
-  <meta property="og:description" content="A software studio for startups and scaleups. Mobile, backend, and the systems behind them." />
+  <meta property="og:title" content="8bar Systems — Engineered outcomes." />
+  <meta property="og:description" content="A Hong Kong software studio for startups and scaleups. Mobile, backend, and the systems behind them." />
   <meta property="og:url" content="https://8barsystems.tech/" />
   <meta property="og:image" content="https://8barsystems.tech/og.png" />
   <meta property="og:image:width" content="1200" />
@@ -18,124 +24,233 @@
   <meta property="og:locale" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="8bar — Engineered outcomes." />
-  <meta name="twitter:description" content="A software studio for startups and scaleups. Mobile, backend, and the systems behind them." />
+  <meta name="twitter:title" content="8bar Systems — Engineered outcomes." />
+  <meta name="twitter:description" content="A Hong Kong software studio for startups and scaleups. Mobile, backend, and the systems behind them." />
   <meta name="twitter:image" content="https://8barsystems.tech/og.png" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="/brand/logo.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/brand/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Google Analytics 4 + Consent Mode v2 -->
+  <!-- Backward compatibility: old #hash links -> real URLs -->
   <script>
-    window.GA_MEASUREMENT_ID = 'G-S4D0E439Q7';
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    window.gtag = gtag;
-
-    // Default everything denied -> cookieless ping mode until consent.
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'denied',
-      wait_for_update: 500
-    });
-
-    gtag('js', new Date());
-    // Disable automatic page_view; we send them manually per hash route (see chrome.jsx).
-    gtag('config', window.GA_MEASUREMENT_ID, { send_page_view: false });
-
-    // Returning visitor who already accepted -> upgrade silently, no banner.
-    if (localStorage.getItem('eightbar_ga_consent') === 'granted') {
-      gtag('consent', 'update', {
-        ad_storage: 'granted',
-        ad_user_data: 'granted',
-        ad_personalization: 'granted',
-        analytics_storage: 'granted'
-      });
-    }
-
-    // Inject gtag/js dynamically so the URL derives from the single ID source.
     (function () {
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_MEASUREMENT_ID;
-      document.head.appendChild(s);
+      var h = (location.hash || '').replace('#', '').split('?')[0];
+      if (['work', 'about', 'contact'].indexOf(h) > -1) location.replace('/' + h + '/');
     })();
   </script>
 
-  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
-</head>
-<body data-screen-label="8bar website">
-  <div id="root"></div>
+  <script src="/assets/analytics.js"></script>
 
-  <script type="text/babel" src="scale.jsx"></script>
-  <script type="text/babel" src="chrome.jsx"></script>
-  <script type="text/babel" src="page-home.jsx"></script>
-  <script type="text/babel" src="page-work.jsx"></script>
-  <script type="text/babel" src="page-about.jsx"></script>
-  <script type="text/babel" src="page-contact.jsx"></script>
-  <script type="text/babel" src="app.jsx"></script>
-
-  <!-- Cookie consent banner (GA4 Consent Mode gate) -->
-  <style>#eightbar-cookie-banner{display:none}</style>
-  <div id="eightbar-cookie-banner"
-       role="dialog"
-       aria-live="polite"
-       aria-label="Cookie consent"
-       style="position:fixed;bottom:0;left:0;right:0;z-index:9999;
-              background:#0E0E0D;border-top:1px solid #3D3D3B;
-              padding:16px clamp(20px,4vw,56px);
-              display:flex;flex-wrap:wrap;align-items:center;gap:14px;
-              font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:#9C9A92;">
-    <span style="flex:1;min-width:240px;line-height:1.5;">
-      We use cookies to understand how visitors use this site and to improve it.
-    </span>
-    <div style="display:flex;gap:10px;flex-shrink:0;">
-      <button id="eightbar-cookie-decline"
-              style="background:transparent;border:1px solid #3D3D3B;color:#9C9A92;
-                     padding:9px 20px;border-radius:2px;cursor:pointer;font-size:13px;font-weight:600;
-                     font-family:'JetBrains Mono','Courier New',ui-monospace,monospace;letter-spacing:.04em;">
-        Decline
-      </button>
-      <button id="eightbar-cookie-accept"
-              style="background:transparent;border:1px solid #C8944A;color:#C8944A;
-                     padding:9px 20px;border-radius:2px;cursor:pointer;font-size:13px;font-weight:600;
-                     font-family:'JetBrains Mono','Courier New',ui-monospace,monospace;letter-spacing:.04em;">
-        Accept
-      </button>
-    </div>
-  </div>
-  <script>
-    (function () {
-      var banner = document.getElementById('eightbar-cookie-banner');
-      var consent = localStorage.getItem('eightbar_ga_consent');
-
-      if (!consent) { banner.style.display = 'flex'; }
-
-      document.getElementById('eightbar-cookie-accept').addEventListener('click', function () {
-        localStorage.setItem('eightbar_ga_consent', 'granted');
-        banner.style.display = 'none';
-        gtag('consent', 'update', {
-          ad_storage: 'granted',
-          ad_user_data: 'granted',
-          ad_personalization: 'granted',
-          analytics_storage: 'granted'
-        });
-        // Count the accepting session's current route.
-        if (typeof window.trackPageView === 'function') {
-          window.trackPageView((window.location.hash || '#home').replace(/^#/, '').split('?')[0]);
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "ProfessionalService"],
+        "@id": "https://8barsystems.tech/#organization",
+        "name": "8bar Systems",
+        "alternateName": "8bar",
+        "url": "https://8barsystems.tech/",
+        "logo": "https://8barsystems.tech/brand/logo.png",
+        "image": "https://8barsystems.tech/og.png",
+        "email": "contact@8barsystems.tech",
+        "slogan": "Engineered outcomes.",
+        "description": "A software studio for startups and scaleups. We build mobile applications, backend APIs, and the platforms behind them, and advise the teams who run them. Senior engineering built on a decade of shipped systems in fintech, payments, trading, and high-throughput mobile.",
+        "foundingLocation": "Hong Kong",
+        "areaServed": "Worldwide",
+        "knowsAbout": [
+          "Backend engineering", "Mobile application development", "Payments and FX systems",
+          "Trading and market infrastructure", "Event-driven architecture", "Apache Kafka",
+          "Kubernetes", "Cloud platforms (AWS, Azure)", "Site reliability engineering",
+          "Observability", "Software architecture review", "Fractional CTO"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Unit 2904-05, 29/F, Universal Trade Centre, 3 Arbuthnot Road",
+          "addressLocality": "Central",
+          "addressRegion": "Hong Kong",
+          "addressCountry": "HK"
+        },
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "sameAs": ["https://www.linkedin.com/company/8bar-systems"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "contact@8barsystems.tech",
+          "contactType": "sales",
+          "areaServed": "Worldwide",
+          "availableLanguage": "English"
         }
-      });
-
-      document.getElementById('eightbar-cookie-decline').addEventListener('click', function () {
-        // 'denied' is already the default; persist so the banner won't reappear.
-        localStorage.setItem('eightbar_ga_consent', 'denied');
-        banner.style.display = 'none';
-      });
-    })();
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://8barsystems.tech/#website",
+        "url": "https://8barsystems.tech/",
+        "name": "8bar Systems",
+        "publisher": { "@id": "https://8barsystems.tech/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://8barsystems.tech/#webpage",
+        "url": "https://8barsystems.tech/",
+        "name": "8bar Systems — Software studio for startups & scaleups",
+        "isPartOf": { "@id": "https://8barsystems.tech/#website" },
+        "about": { "@id": "https://8barsystems.tech/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Build", "description": "New backend services, APIs, mobile apps, and platforms designed for the throughput, correctness, and operational demands of financial-grade workloads." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Run", "description": "Cloud platforms, CI/CD, observability, and on-call. The work that turns a service that ships into one that stays up." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Rescue", "description": "Inherited systems that have outgrown how they were built. We stabilise, re-platform, and hand back something a team can keep moving on." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Architecture & advisory", "description": "Reviews, decision documents, and second opinions. Short engagements for the calls that have to be right the first time." } }
+        ]
+      }
+    ]
+  }
   </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell row">
+      <a href="/" class="wordmark" aria-label="8bar — home"><span class="num">8</span><span class="word">bar</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/work/">Work</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="shell hero">
+      <span class="eyebrow">Software · Hong Kong · Worldwide</span>
+      <h1 class="display hero-wedge" style="margin-top:24px">
+        Writing software<br/>has never been easier.
+        <span class="hero-wedge-break"> </span>
+        Running it well<br/>has never been harder.
+      </h1>
+      <p class="lede">
+        A software studio for startups and scaleups. We build mobile applications,
+        backend APIs, and the systems behind them — and we advise on the decisions
+        that shape them.
+      </p>
+      <div class="ctas">
+        <a href="/work/" class="btn btn--primary">See what we do <span class="arrow">→</span></a>
+        <a href="/contact/" class="btn">Get in touch <span class="arrow">→</span></a>
+      </div>
+
+      <div class="hero-scale-wrap">
+        <svg class="scale" viewBox="0 0 1180 110" preserveAspectRatio="none" role="img" aria-label="Precision measurement scale, eight mark highlighted">
+          <line x1="12" y1="82" x2="1168" y2="82" stroke="var(--subtle)" stroke-width="1"/>
+          <line x1="12" y1="82" x2="12" y2="60" stroke="var(--steel)" stroke-width="1"/>
+          <line x1="140.44" y1="82" x2="140.44" y2="60" stroke="var(--steel)" stroke-width="1"/>
+          <line x1="268.89" y1="82" x2="268.89" y2="60" stroke="var(--steel)" stroke-width="1"/>
+          <line x1="397.33" y1="82" x2="397.33" y2="60" stroke="var(--steel)" stroke-width="1"/>
+          <line x1="525.78" y1="82" x2="525.78" y2="60" stroke="var(--steel)" stroke-width="1"/>
+          <line x1="654.22" y1="82" x2="654.22" y2="60" stroke="var(--steel)" stroke-width="1"/>
+          <line x1="782.67" y1="82" x2="782.67" y2="60" stroke="var(--steel)" stroke-width="1"/>
+          <line x1="911.11" y1="82" x2="911.11" y2="60" stroke="var(--steel)" stroke-width="1"/>
+          <line x1="1039.56" y1="82" x2="1039.56" y2="26" stroke="var(--amber)" stroke-width="2"/>
+          <text x="1039.56" y="14" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-weight="700" font-size="14" fill="var(--amber)" letter-spacing="0.02em">8</text>
+          <line x1="1168" y1="82" x2="1168" y2="60" stroke="var(--steel)" stroke-width="1"/>
+        </svg>
+        <div class="scale-caption">
+          <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span>
+          <span>5</span><span>6</span><span>7</span><span style="color:var(--amber)">8</span><span>9</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="shell section">
+      <span class="eyebrow">Why 8bar</span>
+      <p class="statement" style="margin-top:24px">
+        Senior engineering, delivered as a studio. Built on a decade of shipped
+        systems in <em>fintech, payments, and mobile.</em>
+      </p>
+
+      <div class="three-up">
+        <div class="item">
+          <div class="num">01</div>
+          <h3>Engineering led.</h3>
+          <p>Architecture, code review, production operations. A decade of shipped systems informs every recommendation we make.</p>
+        </div>
+        <div class="item">
+          <div class="num">02</div>
+          <h3>Specific, not vague.</h3>
+          <p>We scope work in days, not weeks. We name the bottleneck and we name the fix.</p>
+        </div>
+        <div class="item">
+          <div class="num">03</div>
+          <h3>Built to last.</h3>
+          <p>Tests, observability, runbooks, and CI on day one — not the day before you regret it.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="shell section">
+      <span class="eyebrow">What we take on</span>
+      <p class="statement" style="margin-top:24px">
+        Four kinds of work, <em>scoped before they start</em>.
+      </p>
+
+      <div class="four-up">
+        <div class="item">
+          <div class="num">01</div>
+          <h3>Build it.</h3>
+          <p>New backend services, APIs, and platforms — designed for the throughput, correctness, and operational demands of financial-grade workloads.</p>
+        </div>
+        <div class="item">
+          <div class="num">02</div>
+          <h3>Run it.</h3>
+          <p>Cloud platforms, CI/CD, observability, and on-call. The work that turns a service that ships into one that stays up.</p>
+        </div>
+        <div class="item">
+          <div class="num">03</div>
+          <h3>Rescue it.</h3>
+          <p>Inherited systems that have outgrown how they were built. We stabilise, re-platform, and hand back something a team can keep moving on.</p>
+        </div>
+        <div class="item">
+          <div class="num">04</div>
+          <h3>Architecture &amp; advisory.</h3>
+          <p>Reviews, decision documents, and second opinions. Short engagements for the calls that have to be right the first time.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="shell section--tight">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:24px">
+        <p class="statement">Have a system that&rsquo;s creaking, or one you haven&rsquo;t built yet?</p>
+        <a href="/contact/" class="btn btn--primary">Get in touch <span class="arrow">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell row">
+      <div class="col">
+        <span class="wordmark" style="font-size:18px"><span class="num">8</span><span class="word">bar</span></span>
+        <span class="meta">Engineered outcomes.</span>
+      </div>
+      <div class="col">
+        <span class="meta">Contact</span>
+        <a class="mono" style="font-size:14px" href="mailto:contact@8barsystems.tech">contact@8barsystems.tech</a>
+      </div>
+      <div class="col" style="text-align:right">
+        <span class="mono" style="font-size:12px;color:var(--steel)">© 8barsystems.tech</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
